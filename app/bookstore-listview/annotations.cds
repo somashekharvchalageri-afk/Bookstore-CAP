@@ -12,7 +12,7 @@ annotate service.Books with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : gerne,
+                Value : gerne_code,
                 Label : 'Gerne',
             },
             {
@@ -27,7 +27,7 @@ annotate service.Books with @(
             },
             {
                 $Type : 'UI.DataField',
-                Label : '{i18n>Price1}',
+                Label : 'Price',
                 Value : price,
             },
             {
@@ -35,6 +35,11 @@ annotate service.Books with @(
                 Value : status_code,
                 Label : 'Status',
                 Criticality : status.criticality,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : currency_code,
+                Label : 'Currency',
             },
         ],
     },
@@ -67,7 +72,7 @@ annotate service.Books with @(
         {
             $Type : 'UI.DataField',
             Label : '{i18n>Gerne1}',
-            Value : gerne,
+            Value : gerne_code,
         },
         {
             $Type : 'UI.DataField',
@@ -110,7 +115,7 @@ annotate service.Books with @(
         TypeImageUrl : 'sap-icon://course-book',
         Description : {
             $Type : 'UI.DataField',
-            Value : gerne,
+            Value : gerne_code,
         },
     },
     UI.FieldGroup #EntryInformation : {
@@ -230,4 +235,30 @@ annotate service.Status with {
         Common.Text : disaplayText,
         Common.Text.@UI.TextArrangement : #TextOnly,
 )};
+
+annotate service.Books with {
+    currency @Common.ValueListWithFixedValues : true
+};
+
+annotate service.Books with {
+    gerne @(
+        UI.MultiLineText : false,
+        Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Gernes',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : gerne_code,
+                    ValueListProperty : 'code',
+                },
+            ],
+        },
+        Common.ValueListWithFixedValues : false,
+    )
+};
+
+annotate service.Gernes with {
+    code @Common.Text : description
+};
 
