@@ -66,10 +66,21 @@ annotate service.Books with @(
             Label : '{i18n>Price1}',
             Value : price,
         },
+        {
+            $Type : 'UI.DataField',
+            Value : stock,
+            Label : 'Stock',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : status_code,
+            Label : 'Status',
+            Criticality : status.criticality,
+            CriticalityRepresentation : #WithIcon,
+        },
     ],
     UI.SelectionFields : [
-        price,
-        publishedAt,
+        status_code,
     ],
     UI.HeaderInfo : {
         Title : {
@@ -102,6 +113,25 @@ annotate service.Books with @(
             {
                 $Type : 'UI.DataField',
                 Value : createdBy,
+            },
+        ],
+    },
+    UI.HeaderFacets : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Header',
+            ID : 'Header',
+            Target : '@UI.FieldGroup#Header',
+        },
+    ],
+    UI.FieldGroup #Header : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : status_code,
+                Label : 'Status',
+                Criticality : status.criticality,
             },
         ],
     },
@@ -152,4 +182,34 @@ annotate service.Chapters with @(
         },
     ]
 );
+
+annotate service.Books with {
+    status @(
+        Common.Text : status.disaplayText,
+        Common.Text.@UI.TextArrangement : #TextOnly,
+        Common.Label : 'Status_code',
+        Common.ValueList : {
+            $Type : 'Common.ValueListType',
+            CollectionPath : 'Status',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : status_code,
+                    ValueListProperty : 'code',
+                },
+            ],
+        },
+        Common.ValueListWithFixedValues : true,
+    )
+};
+
+annotate service.Books with {
+    stock @Common.Label : 'stock'
+};
+
+annotate service.Status with {
+    code @(
+        Common.Text : disaplayText,
+        Common.Text.@UI.TextArrangement : #TextOnly,
+)};
 
