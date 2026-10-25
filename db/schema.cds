@@ -43,14 +43,15 @@ entity BookStatus {
 }
 
 entity Authors : cuid, managed {
-    name     : String;
-    fileName : String;
-    fileType : String      @Core.IsMediaType;
-    content  : LargeBinary @Core.MediaType           : fileType
-                           @Core.AcceptableMediaTypes: ['application/pdf']
-                           @Core.ContentDisposition  : fileName;
-    books    : Association to many Books
-                   on books.author = $self;
+    name              : String;
+    fileName          : String;
+    fileType          : String      @Core.IsMediaType;
+    content           : LargeBinary @Core.MediaType           : fileType
+                                    @Core.AcceptableMediaTypes: ['application/pdf']
+                                    @Core.ContentDisposition  : fileName;
+    virtual bookCount : Integer;
+    books             : Association to many Books
+                            on books.author = $self;
 }
 
 entity Chapters : cuid, managed {

@@ -1,4 +1,5 @@
 import { Books } from '#cds-models/BookstoreService'
+import { Authors } from '#cds-models/tutorial/db';
 import { Gerne } from '#cds-models/tutorial/db'
 import cds from '@sap/cds'
 
@@ -33,12 +34,19 @@ export class BookstoreService extends cds.ApplicationService {
     this.before(['READ'], Books, async (req) => {
       console.log('Before READ Books')
     })
+
     this.after('READ', Books, async (books, req) => {
       for (const book of books) {
         if (book.gerne_code === 'Religion') {
           book.price = book.price * 0.8;
         }
       }
+    })
+
+    this.after('READ', Authors, async (authors) => {
+      console.log("After read Authors")
+      const ids = authors.map(author => authors.id);
+      console.log(ids)
     })
 
 
