@@ -16,7 +16,6 @@ export class BookstoreService extends cds.ApplicationService {
       if (newDate) {
         await UPDATE(Books).set({ publishedAt: newDate }).where({ ID: bookId })
       }
-      console.log(newDate)
     })
     
     this.on('changeStatus', Books, async (req) => {
@@ -31,7 +30,6 @@ export class BookstoreService extends cds.ApplicationService {
       console.log('Before READ Books')
     })
     this.after('READ', Books, async (books, req) => {
-      console.log('After READ Books', books)
       for (const book of books) {
         if (book.gerne_code === 'Religion') {
           book.price = book.price * 0.8;
