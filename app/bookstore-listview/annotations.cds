@@ -1,5 +1,24 @@
 using BookstoreService as service from '../../srv/service';
-annotate service.Books with @odata.draft.enabled;
+annotate service.Books with @(
+    odata.draft.enabled,
+    UI.Identification : [
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'BookstoreService.addStock',
+            Label : 'Add stock',
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'BookstoreService.changePublishDate',
+            Label : 'Change publish date',
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'BookstoreService.changeStatus',
+            Label : 'Change status',
+        },
+    ],
+);
 
 annotate service.Books with @(
     UI.FieldGroup #GeneratedGroup : {
@@ -12,8 +31,8 @@ annotate service.Books with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : gerne_code,
-                Label : 'Gerne',
+                Value : genre_code,
+                Label : 'genre',
             },
             {
                 $Type : 'UI.DataField',
@@ -40,6 +59,11 @@ annotate service.Books with @(
                 $Type : 'UI.DataField',
                 Value : currency_code,
                 Label : 'Currency',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : stock,
+                Label : 'Stock',
             },
         ],
     },
@@ -71,8 +95,8 @@ annotate service.Books with @(
         },
         {
             $Type : 'UI.DataField',
-            Label : '{i18n>Gerne1}',
-            Value : gerne_code,
+            Label : '{i18n>genre1}',
+            Value : genre_code,
         },
         {
             $Type : 'UI.DataField',
@@ -101,6 +125,11 @@ annotate service.Books with @(
             Criticality : status.criticality,
             CriticalityRepresentation : #WithIcon,
         },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'BookstoreService.addStock',
+            Label : 'Add stock',
+        },
     ],
     UI.SelectionFields : [
         status_code,
@@ -115,7 +144,7 @@ annotate service.Books with @(
         TypeImageUrl : 'sap-icon://course-book',
         Description : {
             $Type : 'UI.DataField',
-            Value : gerne_code,
+            Value : genre_code,
         },
     },
     UI.FieldGroup #EntryInformation : {
@@ -241,15 +270,15 @@ annotate service.Books with {
 };
 
 annotate service.Books with {
-    gerne @(
+    genre @(
         UI.MultiLineText : false,
         Common.ValueList : {
             $Type : 'Common.ValueListType',
-            CollectionPath : 'Gernes',
+            CollectionPath : 'genres',
             Parameters : [
                 {
                     $Type : 'Common.ValueListParameterInOut',
-                    LocalDataProperty : gerne_code,
+                    LocalDataProperty : genre_code,
                     ValueListProperty : 'code',
                 },
             ],
@@ -258,7 +287,7 @@ annotate service.Books with {
     )
 };
 
-annotate service.Gernes with {
+annotate service.genres with {
     code @Common.Text : description
 };
 

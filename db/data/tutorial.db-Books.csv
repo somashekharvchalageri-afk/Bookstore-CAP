@@ -1,6 +1,6 @@
-ID,title,author_ID,gerne,publishedAt,pages,price,stock,status_code,createdAt,createdBy,modifiedAt,modifiedBy
-9302500b-306a-4280-acce-4f855390c7e9,title-9302500,22886855-e833-4482-8385-b8f82fde03ff,gerne-9302500,2023-12-09,69,6845601.07,84,A,2012-02-17T00:00:00.000Z,createdBy.5jdus@example.com,2009-06-11T00:00:00.000Z,modifiedBy.5jdus@example.net
-93025018-87d8-4811-b146-395a282e67d0,title-9302501,22886855-e833-4482-8385-b8f82fde03ff,gerne-9302501,2022-02-12,3,679509.72,44,A,2023-08-22T00:00:00.000Z,createdBy.5jdut@example.com,2000-09-25T00:00:00.000Z,modifiedBy.5jdut@example.com
-93025020-5138-4f7c-90f5-2c16693a2320,title-9302502,22886855-e833-4482-8385-b8f82fde03ff,gerne-9302502,2008-05-29,8,2093279.7,1,U,2015-08-02T00:00:00.000Z,createdBy.5jduu@example.net,2004-03-17T00:00:00.000Z,modifiedBy.5jduu@example.net
-9302503f-6461-40de-81b8-f21eaf7e1bd3,title-9302503,22886855-e833-4482-8385-b8f82fde03ff,gerne-9302503,2023-06-23,38,4834006.45,2,L,2014-05-05T00:00:00.000Z,createdBy.5jduv@example.org,2019-06-03T00:00:00.000Z,modifiedBy.5jduv@example.com
-93025045-4603-4dee-aab6-e8feb962cdf8,title-9302504,22886855-e833-4482-8385-b8f82fde03ff,gerne-9302504,2017-07-26,40,5103667.05,62,A,2012-07-19T00:00:00.000Z,createdBy.5jduw@example.org,2003-07-22T00:00:00.000Z,modifiedBy.5jduw@example.net
+ID,title,author_ID,genre_code,publishedAt,pages,price,currency_code,stock,status_code,createdAt,createdBy,modifiedAt,modifiedBy
+9302500b-306a-4280-acce-4f855390c7e9,title-9302500,22886855-e833-4482-8385-b8f82fde03ff,Religion,2023-12-09,69,10,INR,84,A,2012-02-17T00:00:00.000Z,createdBy.5jdus@example.com,2009-06-11T00:00:00.000Z,modifiedBy.5jdus@example.net
+93025018-87d8-4811-b146-395a282e67d0,title-9302501,22886855-e833-4482-8385-b8f82fde03ff,Fiction,2022-02-12,3,20,INR,44,A,2023-08-22T00:00:00.000Z,createdBy.5jdut@example.com,2000-09-25T00:00:00.000Z,modifiedBy.5jdut@example.com
+93025020-5138-4f7c-90f5-2c16693a2320,title-9302502,22886855-e833-4482-8385-b8f82fde03ff,Religion,2008-05-29,8,30,INR,1,U,2015-08-02T00:00:00.000Z,createdBy.5jduu@example.net,2004-03-17T00:00:00.000Z,modifiedBy.5jduu@example.net
+9302503f-6461-40de-81b8-f21eaf7e1bd3,title-9302503,22886855-e833-4482-8385-b8f82fde03ff,Science,2023-06-23,38,48,INR,2,L,2014-05-05T00:00:00.000Z,createdBy.5jduv@example.org,2019-06-03T00:00:00.000Z,modifiedBy.5jduv@example.com
+93025045-4603-4dee-aab6-e8feb962cdf8,title-9302504,22886855-e833-4482-8385-b8f82fde03ff,Science,2017-07-26,40,50,INR,62,A,2012-07-19T00:00:00.000Z,createdBy.5jduw@example.org,2003-07-22T00:00:00.000Z,modifiedBy.5jduw@example.net
