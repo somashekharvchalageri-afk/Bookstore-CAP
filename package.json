@@ -2,6 +2,16 @@
   "name": "Bookstore",
   "version": "1.0.0",
   "type": "module",
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "db.sqlite"
+        }
+      }
+    }
+  },
   "dependencies": {
     "@sap/cds": "^10",
     "@sap/cds-common-content": "^3.2.0"
@@ -13,14 +23,16 @@
   },
   "scripts": {
     "start": "cds-serve",
-    "watch-bookstore-listview": "cds watch --open bookstorelistview/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-bookstore-listview": "cds watch --open bookstorelistview/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-authors-listview": "cds watch --open authorslistview/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "private": true,
   "workspaces": [
     "app/*"
   ],
   "sapux": [
-    "app/bookstore-listview"
+    "app/bookstore-listview",
+    "app/authors-listview"
   ],
   "imports": {
     "#cds-models/*": "./@cds-models/*/index.js"
